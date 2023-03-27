@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.ComboBoxListCell?>
+<GridPane fx:controller="de.aschoenberg.gui.GameSceneController" xmlns:fx="http://javafx.com/fxml"
+          alignment="CENTER"
+          hgap="40"
+          vgap="5">
+
+    <!-- Header -->
+    <Label fx:id="lblHeaderListView"
+           text="Alle Spieledaten:"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="0"
+           GridPane.columnSpan="2"
+    />
+
+    <Label fx:id="lblHeaderEdit"
+           text="Ändern, Speichern, Löschen:"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="0"
+           GridPane.columnSpan="2"
+    />
+
+
+    <!-- ListViw -->
+    <ListView fx:id="lvGameList"
+              prefWidth="520"
+              minWidth="520"
+              maxWidth="520"
+              prefHeight="600"
+              minHeight="600"
+              maxHeight="600"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="1"
+              GridPane.rowSpan="22"
+              GridPane.columnSpan="2"
+    />
+
+    <!-- CSV-Handler -->
+    <Button fx:id="btnDownloadCsv"
+            text="CSV Download"
+            onAction="#downloadCsv"
+            prefWidth="240"
+            minWidth="240"
+            maxWidth="240"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            alignment="CENTER"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="23"
+    />
+
+    <Button fx:id="btnUploadCsv"
+            text="CSV Upload"
+            onAction="#uploadCsv"
+            prefWidth="240"
+            minWidth="240"
+            maxWidth="240"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            alignment="CENTER"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="23"
+    />
+
+    <!-- Eingabefelder Verlagsdaten -->
+    <Label fx:id="lblHeaderPubisher"
+           text=""
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="2"
+           GridPane.columnSpan="2"
+           GridPane.halignment="LEFT"
+    />
+
+    <Label fx:id="lblOfficialName"
+           text="Ofizieller Name:*"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="3"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextField fx:id="txtOfficialName"
+               promptText="z.B. Galaxy Trucker"
+               text=""
+               prefWidth="330"
+               minWidth="330"
+               maxWidth="330"
+               prefHeight="25"
+               minHeight="25"
+               maxHeight="25"
+               GridPane.columnIndex="3"
+               GridPane.rowIndex="3"
+    />
+
+    <Label fx:id="lblAuthor"
+           text="Autor:"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="4"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextField fx:id="txtAuthor"
+               promptText="z.B. Vlaada Chvatil"
+               text=""
+               prefWidth="330"
+               minWidth="330"
+               maxWidth="330"
+               prefHeight="25"
+               minHeight="25"
+               maxHeight="25"
+               GridPane.columnIndex="3"
+               GridPane.rowIndex="4"
+    />
+
+    <Label fx:id="lblPublisher"
+           text="Verlag:"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="5"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextField fx:id="txtPublisher"
+               promptText="z.B. cGe und Heidelberger"
+               text=""
+               prefWidth="330"
+               minWidth="330"
+               maxWidth="330"
+               prefHeight="25"
+               minHeight="25"
+               maxHeight="25"
+               GridPane.columnIndex="3"
+               GridPane.rowIndex="5"
+    />
+
+    <!-- Eingabefelder Bewertung und Status -->
+    <Label fx:id="lblHeaderRating"
+           text=""
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="6"
+           GridPane.columnSpan="2"
+           GridPane.halignment="LEFT"
+    />
+
+    <Label fx:id="lblRating"
+           text="Bewertung (X Sterne):*"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="7"
+           GridPane.halignment="RIGHT"
+    />
+
+    <ComboBox fx:id="cobRating"
+              promptText="bitte wählen"
+              prefWidth="330"
+              minWidth="330"
+              maxWidth="330"
+              prefHeight="25"
+              minHeight="25"
+              maxHeight="25"
+              GridPane.columnIndex="3"
+              GridPane.rowIndex="7"
+    />
+
+    <Label fx:id="lblEstimation"
+           text="eigene Einschätzung und Meinung:"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="8"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextArea fx:id="txtaEstimation"
+              promptText="z.B. Super Spiel, aber zeitaufwändig zum erklären."
+              text=""
+              prefWidth="330"
+              minWidth="330"
+              maxWidth="330"
+              prefHeight="75"
+              minHeight="75"
+              maxHeight="75"
+              GridPane.columnIndex="3"
+              GridPane.rowIndex="8"
+              GridPane.rowSpan="3"
+    />
+
+    <Label fx:id="lblWhoHasIs"
+           text="Wer hat das Spiel?*"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="11"
+           GridPane.halignment="RIGHT"
+    />
+
+    <Button fx:id="chbWhoHasIt"
+            text=""
+            onMouseClicked="#choicesWhoHasIt"
+            alignment="BASELINE_LEFT"
+            prefWidth="330"
+            minWidth="330"
+            maxWidth="330"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            GridPane.columnIndex="3"
+            GridPane.rowIndex="11"
+    />
+
+    <Label fx:id="lblHowOftenPlayed"
+           text="Wie oft gespielt? "
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="12"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextField fx:id="txtHowOftenPlayed"
+               promptText=">10 Mal bis 2018"
+               text=""
+               prefWidth="330"
+               minWidth="330"
+               maxWidth="330"
+               prefHeight="25"
+               minHeight="25"
+               maxHeight="25"
+               GridPane.columnIndex="3"
+               GridPane.rowIndex="12"
+    />
+
+
+    <!-- Eingabefelder Alter, Spieleranzahl und Spieldauer -->
+    <Label fx:id="lblHeaderPlayers"
+           text=""
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="13"
+           GridPane.columnSpan="2"
+           GridPane.halignment="LEFT"
+    />
+
+    <Label fx:id="lblRecommendedAge"
+           text="Empfohlenes Alter (ab X Jahren):"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="14"
+           GridPane.halignment="RIGHT"
+    />
+
+    <ComboBox fx:id="cbRecommendedAge"
+              promptText="bitte wählen"
+              prefWidth="330"
+              minWidth="330"
+              maxWidth="330"
+              prefHeight="25"
+              minHeight="25"
+              maxHeight="25"
+              GridPane.columnIndex="3"
+              GridPane.rowIndex="14"
+    />
+
+    <Label fx:id="lblIdealAmountOfPlayers"
+           text="Empfohlene Spieleranzahl(en):"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="15"
+           GridPane.halignment="RIGHT"
+    />
+
+    <Button fx:id="chbIdealAmountOfPlayers"
+            text=""
+            onMouseClicked="#choicesPlayerAmountIdeal"
+            alignment="BASELINE_LEFT"
+            prefWidth="330"
+            minWidth="330"
+            maxWidth="330"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            GridPane.columnIndex="3"
+            GridPane.rowIndex="15"
+    />
+
+    <Label fx:id="lblRecommendedAmountOfPlayers"
+           text="Mögliche Spieleranzahl(en):*"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="16"
+           GridPane.halignment="RIGHT"
+    />
+
+    <Button fx:id="chbRecommendedAmountOfPlayers"
+            text=""
+            onMouseClicked="#choicesPlayerAmountRecommended"
+            alignment="BASELINE_LEFT"
+            prefWidth="330"
+            minWidth="330"
+            maxWidth="330"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            GridPane.columnIndex="3"
+            GridPane.rowIndex="16"
+    />
+
+    <Label fx:id="lblPlayingTime"
+           text="Spieldauer:*"
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="17"
+           GridPane.halignment="RIGHT"
+    />
+
+    <TextField fx:id="txtPlayingTime"
+               promptText="z.B. 30-45 Minuten je Spieler"
+               text=""
+               prefWidth="330"
+               minWidth="330"
+               maxWidth="330"
+               prefHeight="25"
+               minHeight="25"
+               maxHeight="25"
+               GridPane.columnIndex="3"
+               GridPane.rowIndex="17"
+    />
+
+    <!-- Buttons -->
+    <!-- 1 Zelle Abstand (GridPane.rowIndex) zum Vorgänger für die Optik -->
+    <Label fx:id="lblHeaderButtons"
+           text=""
+           prefHeight="25"
+           minHeight="25"
+           maxHeight="25"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="19"
+           GridPane.columnSpan="2"
+           GridPane.halignment="LEFT"
+    />
+
+    <Button fx:id="btnUpdateOrCreate"
+            text="Speichern"
+            onAction="#updateOrCreateGame"
+            prefWidth="600"
+            minWidth="600"
+            maxWidth="600"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            alignment="CENTER"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="20"
+            GridPane.columnSpan="2"
+    />
+
+    <Button fx:id="btnCancel"
+            text="Abbrechen (Eingabe leeren)"
+            onAction="#cancelGame"
+            prefWidth="600"
+            minWidth="600"
+            maxWidth="600"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            alignment="CENTER"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="21"
+            GridPane.columnSpan="2"
+    />
+
+    <!-- 1 Zelle Abstand (GridPane.rowIndex) zum Vorgänger für die Optik -->
+    <Button fx:id="btnDelete"
+            text="Löschen"
+            onAction="#deleteGame"
+            prefWidth="600"
+            minWidth="600"
+            maxWidth="600"
+            prefHeight="25"
+            minHeight="25"
+            maxHeight="25"
+            alignment="CENTER"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="22"
+            GridPane.columnSpan="2"
+    />
+
+</GridPane>
